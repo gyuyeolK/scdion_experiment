@@ -1,0 +1,23 @@
+# SC-Dion experiment dependencies
+# Tested with: Python 3.10+, CUDA 12.1+, A100 80GB
+
+# PyTorch (CUDA 12.1)
+# Install separately: pip install torch==2.4.0 --index-url https://download.pytorch.org/whl/cu121
+torch>=2.3.0
+
+# HF stack
+transformers>=4.45.0
+accelerate>=0.34.0
+datasets>=2.20.0
+tokenizers>=0.20.0
+
+# Numerical
+numpy>=1.24.0
+
+# Optional but nice
+sentencepiece
+protobuf
+
+# For some HF models (e.g. Llama family)
+# huggingface_hub  -- login required for gated models:
+#   huggingface-cli login
