@@ -1,0 +1,88 @@
+{
+  "config": {
+    "models": [
+      "Qwen/Qwen2.5-7B"
+    ],
+    "batch_size": 2,
+    "seq_len": 2048,
+    "num_batches": 4,
+    "max_params": 60,
+    "ks": [
+      8,
+      32
+    ],
+    "alphas": [
+      0.5,
+      0.25,
+      0.125
+    ],
+    "cert_threshold": 0.05,
+    "dtype": "bfloat16",
+    "output": "results/phase1_modelsweep_7B.json"
+  },
+  "models": {
+    "Qwen/Qwen2.5-7B": {
+      "summary": {
+        "mean_loss": 2.443290114402771,
+        "n_params_total_billion": 7.615616512,
+        "n_2d_params": 198,
+        "n_diagnosed": 60,
+        "per_config": {
+          "k8_a0.5": {
+            "pass_rate": 1.0,
+            "mean_cert": 0.4643336656006122,
+            "mean_tau": 0.22182167603082822,
+            "mean_omega": 0.7787618269522985,
+            "total": 60
+          },
+          "k8_a0.25": {
+            "pass_rate": 1.0,
+            "mean_cert": 0.3491861272812458,
+            "mean_tau": 0.22182167603082822,
+            "mean_omega": 0.5442782133817673,
+            "total": 60
+          },
+          "k8_a0.125": {
+            "pass_rate": 1.0,
+            "mean_cert": 0.23831155308263913,
+            "mean_tau": 0.22182167603082822,
+            "mean_omega": 0.35957278062899906,
+            "total": 60
+          },
+          "k32_a0.5": {
+            "pass_rate": 1.0,
+            "mean_cert": 0.6590105976695789,
+            "mean_tau": 0.0645206170306279,
+            "mean_omega": 0.6026995321114857,
+            "total": 60
+          },
+          "k32_a0.25": {
+            "pass_rate": 1.0,
+            "mean_cert": 0.47134130176563194,
+            "mean_tau": 0.0645206170306279,
+            "mean_omega": 0.33744193116823834,
+            "total": 60
+          },
+          "k32_a0.125": {
+            "pass_rate": 1.0,
+            "mean_cert": 0.3146412014729443,
+            "mean_tau": 0.0645206170306279,
+            "mean_omega": 0.176876591766874,
+            "total": 60
+          }
+        },
+        "row_norm_spread": {
+          "median": 12.909287246027095,
+          "max": 129.89440514625593,
+          "frac_gt_20": 0.21666666666666667
+        },
+        "stable_rank": {
+          "median": 4.307353232673479,
+          "min": 1.105478551230768,
+          "max": 18.644793224665175
+        }
+      },
+      "model_name": "Qwen/Qwen2.5-7B"
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "config": {
+    "models": [
+      "HuggingFaceTB/SmolLM2-360M",
+      "HuggingFaceTB/SmolLM2-1.7B",
+      "meta-llama/Llama-3.2-3B",
+      "Qwen/Qwen2.5-7B"
+    ],
+    "batch_size": 2,
+    "seq_len": 2048,
+    "num_batches": 4,
+    "max_params": 60,
+    "ks": [
+      8,
+      32
+    ],
+    "alphas": [
+      0.5,
+      0.25,
+      0.125
+    ],
+    "cert_threshold": 0.05,
+    "dtype": "bfloat16",
+    "output": "results/phase1_modelsweep.json"
+  },
+  "models": {
+    "HuggingFaceTB/SmolLM2-360M": {
+      "summary": {
+        "mean_loss": 2.8462933897972107,
+        "n_params_total_billion": 0.36182112,
+        "n_2d_params": 225,
+        "n_diagnosed": 60,
+        "per_config": {
+          "k8_a0.5": {
+            "pass_rate": 1.0,
+            "mean_cert": 0.5062891054256905,
+            "mean_tau": 0.1929001135633651,
+            "mean_omega": 0.7512276043494542,
+            "total": 60
+          },
+          "k8_a0.25": {
+            "pass_rate": 1.0,
+            "mean_cert": 0.37218650463994984,
+            "mean_tau": 0.1929001135633651,
+            "mean_omega": 0.496039258937041,
+            "total": 60
+          },
+          "k8_a0.125": {
+            "pass_rate": 1.0,
+            "mean_cert": 0.2510435924516211,
+            "mean_tau": 0.1929001135633651,
+            "mean_omega": 0.3123533549408118,
+            "total": 60
+          },
+          "k32_a0.5": {
+            "pass_rate": 1.0,
+            "mean_cert": 0.6249291653958867,
+            "mean_tau": 0.053885357914113016,
+            "mean_omega": 0.5184903865059217,
+            "total": 60
+          },
+          "k32_a0.25": {
+            "pass_rate": 1.0,
+            "mean_cert": 0.40764994479920763,
+            "mean_tau": 0.053885357914113016,
+            "mean_omega": 0.2440807033330202,
+            "total": 60
+          },
+          "k32_a0.125": {
+            "pass_rate": 1.0,
+            "mean_cert": 0.22235095478678701,
+            "mean_tau": 0.053885357914113016,
+            "mean_omega": 0.0941228263390561,
+            "total": 60
+          }
+        },
+        "row_norm_spread": {
+          "median": 8.20911976412548,
+          "max": 30.783855017908376,
+          "frac_gt_20": 0.03333333333333333
+        },
+        "stable_rank": {
+          "median": 3.1064694254682115,
+          "min": 1.3539986149227337,
+          "max": 9.526463551802543
+        }
+      },
+      "model_name": "HuggingFaceTB/SmolLM2-360M"
+    },
+    "HuggingFaceTB/SmolLM2-1.7B": {
+      "summary": {
+        "mean_loss": 2.502332925796509,
+        "n_params_total_billion": 1.711376384,
+        "n_2d_params": 169,
+        "n_diagnosed": 60,
+        "per_config": {
+          "k8_a0.5": {
+            "pass_rate": 1.0,
+            "mean_cert": 0.49758235404077084,
+            "mean_tau": 0.20318384112271654,
+            "mean_omega": 0.7764778008063634,
+            "total": 60
+          },
+          "k8_a0.25": {
+            "pass_rate": 1.0,
+            "mean_cert": 0.38657982469949503,
+            "mean_tau": 0.20318384112271654,
+            "mean_omega": 0.5610634600122769,
+            "total": 60
+          },
+          "k8_a0.125": {
+            "pass_rate": 0.9833333333333333,
+            "mean_cert": 0.2823284749156188,
+            "mean_tau": 0.20318384112271654,
+            "mean_omega": 0.39536134600639344,
+            "total": 60
+          },
+          "k32_a0.5": {
+            "pass_rate": 1.0,
+            "mean_cert": 0.6822712540143705,
+            "mean_tau": 0.05782578727790533,
+            "mean_omega": 0.6231661438941956,
+            "total": 60
+          },
+          "k32_a0.25": {
+            "pass_rate": 1.0,
+            "mean_cert": 0.5057701699617155,
+            "mean_tau": 0.05782578727790533,
+            "mean_omega": 0.37093997523188593,
+            "total": 60
+          },
+          "k32_a0.125": {
+            "pass_rate": 1.0,
+            "mean_cert": 0.3582048375034013,
+            "mean_tau": 0.05782578727790533,
+            "mean_omega": 0.20917633262773355,
+            "total": 60
+          }
+        },
+        "row_norm_spread": {
+          "median": 8.92951814710637,
+          "max": 46.091562146101424,
+          "frac_gt_20": 0.2
+        },
+        "stable_rank": {
+          "median": 2.6991112133874893,
+          "min": 1.01294722134066,
+          "max": 17.52293133941404
+        }
+      },
+      "model_name": "HuggingFaceTB/SmolLM2-1.7B"
+    },
+    "meta-llama/Llama-3.2-3B": {
+      "error": "You are trying to access a gated repo.\nMake sure to have access to it at https://huggingface.co/meta-llama/Llama-3.2-3B.\n401 Client Error. (Request ID: Root=1-6a029f42-7dd31c0b3155c84f41fa1397;95922bf8-1c9d-4cb8-a0bc-a86cf8fe1246)\n\nCannot access gated repo for url https://huggingface.co/meta-llama/Llama-3.2-3B/resolve/main/config.json.\nAccess to model meta-llama/Llama-3.2-3B is restricted. You must have access to it and be authenticated to access it. Please log in.",
+      "model_name": "meta-llama/Llama-3.2-3B"
+    },
+    "Qwen/Qwen2.5-7B": {
+      "error": "Data processing error: File reconstruction error: IO Error: No space left on device (os error 28)",
+      "model_name": "Qwen/Qwen2.5-7B"
+    }
+  }
+}
